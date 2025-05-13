@@ -7,3 +7,7 @@ from .errores import (
     NoTieneCaracterEspecialError,
     NoTienePalabraSecretaError
 )
+class ReglaValidacion(ABC):
+    def __init__(self, longitud_esperada):
+        self._longitud_esperada = longitud_esperada
+
