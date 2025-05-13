@@ -47,3 +47,6 @@ class ReglaValidacionGanimedes(ReglaValidacion):
             raise NoTieneCaracterEspecialError("La clave debe contener al menos un carácter especial (@, _, #, $ o %)")
         return True
 
+class ReglaValidacionCalisto(ReglaValidacion):
+    def __init__(self):
+        super().__init__(6)
