@@ -33,3 +33,17 @@ class ReglaValidacionGanimedes(ReglaValidacion):
 
     def contiene_caracter_especial(self, clave):
         return any(c in "@_#$%" for c in clave)
+
+    def es_valida(self, clave):
+        if not self._validar_longitud(clave):
+            raise NoCumpleLongitudMinimaError("La clave debe tener una longitud de más de 8 caracteres")
+        if not self._contiene_mayuscula(clave):
+            raise NoTieneLetraMayusculaError("La clave debe contener al menos una letra mayúscula")
+        if not self._contiene_minuscula(clave):
+            raise NoTieneLetraMinusculaError("La clave debe contener al menos una letra minúscula")
+        if not self._contiene_numero(clave):
+            raise NoTieneNumeroError("La clave debe contener al menos un número")
+        if not self.contiene_caracter_especial(clave):
+            raise NoTieneCaracterEspecialError("La clave debe contener al menos un carácter especial (@, _, #, $ o %)")
+        return True
+
