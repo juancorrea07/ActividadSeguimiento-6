@@ -26,3 +26,7 @@ class ReglaValidacion(ABC):
 
     def _contiene_numero(self, clave):
         return any(c.isdigit() for c in clave)
+
+class ReglaValidacionGanimedes(ReglaValidacion):
+    def __init__(self):
+        super().__init__(8)
